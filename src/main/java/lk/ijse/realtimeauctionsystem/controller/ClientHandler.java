@@ -2,7 +2,7 @@ package lk.ijse.realtimeauctionsystem.controller;
 
 import lk.ijse.realtimeauctionsystem.AuctionServer;
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
@@ -28,7 +28,7 @@ public class ClientHandler implements Runnable {
                 AuctionServer.processBid(username, Double.parseDouble(line), this);
             }
         } catch (Exception e) {
-            System.out.println("Client disconnected: " + username);
+            System.out.println("Client disconnected.");
         }
     }
 }

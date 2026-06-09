@@ -1,7 +1,6 @@
 package lk.ijse.realtimeauctionsystem;
 
 import lk.ijse.realtimeauctionsystem.controller.ClientHandler;
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -15,6 +14,7 @@ public class AuctionServer {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(PORT);
         System.out.println("[Auction server started - port 6000]");
+        System.out.println("Item: Vintage Watch | Starting Price: LKR 5,000");
 
         new Thread(() -> {
             Scanner sc = new Scanner(System.in);
@@ -41,7 +41,7 @@ public class AuctionServer {
             broadcast("UPDATE:" + user + ":" + bid);
         } else {
             System.out.println("BID REJECTED - " + user + " : LKR " + bid + " (too low)");
-            sender.send("REJECTED:Your bid of LKR " + bid + " is too low.");
+            sender.send("REJECTED:Your bid of LKR " + bid + " is too low. Current: " + highestBid);
         }
     }
 
