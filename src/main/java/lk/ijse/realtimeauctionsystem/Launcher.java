@@ -20,7 +20,7 @@ public class Launcher extends Application {
         if (result.isPresent()) {
             String username = result.get();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Client1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Client1.fxml"));
             primaryStage.setScene(new Scene(loader.load()));
             primaryStage.setTitle("Auction Client - " + username);
 
